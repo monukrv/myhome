@@ -1,0 +1,172 @@
+/*
+.containerm{
+    border: 1px solid black;
+    height: 600px;
+    width: 600px;
+    background:none;
+    color: black;
+    padding: 5px;
+    position: absolute;
+    display: flex;
+    left: 5px;
+    justify-content: center;
+}
+.dvdtr::-webkit-scrollbar {
+    display: none;
+ }
+.mhtr{
+    border-collapse: collapse;
+    background-color: blue;
+}
+.mdtr{
+ 
+}
+.mdtr,.mhtr{
+    height: 20px;
+    width:580px;
+}
+.dvdtr{
+    position: absolute;
+    background:none;
+    top: 35px;
+    height: 560px;
+    width:580px;
+    overflow: scroll;
+    border-collapse: collapse;
+}
+.tblm{
+    background-color: red;
+}
+
+th,td{
+    height: 600px;
+    width: 600px;
+    border: 1px solid black;
+    height: 20px;
+    border-collapse: collapse;
+}
+.mmodify{
+ 
+}
+.mdelete{
+      
+}
+.mmodify:after{
+    font-family: FontAwesome;
+    content: '\f044';
+}
+
+.mdelete:after{
+    font-family: FontAwesome;
+    content: '\f1f8';
+}
+.mdelete,.mmodify{
+    width: 50px;
+    border: none;
+    -webkit-appearance: none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 40px;
+    font-size: 20px;
+ 
+}
+.mdm{
+    width: 50px;
+}
+.mnb{
+    width:200px;
+}
+.msp{
+    width: 50px;
+}
+ */
+ .containerm{
+    border: 2px solid rgb(233, 228, 228) ;
+    border-radius: 5px;
+    background:none;
+    height: 605px;
+    width: 605px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    left:3px;
+    top:25px;
+    background-color: darkolivegreen;
+    
+
+ }
+ .tbl{
+     height: 600px;
+     width: 600px;
+     margin: 0px;
+ }
+ .dvhtr{
+     position: absolute;
+     top: 5px;
+    height: 30px;
+    width:595px;
+    background-color: rgb(47, 75, 47);
+    border-collapse: collapse;
+
+ }
+ .dvdtr{
+     overflow: scroll;
+     position: absolute;
+     top: 40px;
+    height: 555px;
+    width:595px;
+    padding-top: 5px;
+}
+.mdtr:nth-child(even) {background: rgb(43, 20, 20)}
+.mdtr{
+    background-color: steelblue;
+    display: inline-block;
+}
+th,td{
+    height: 20px;
+    margin: 0px;
+}
+.msp{
+    width:
+     50px;
+}
+.mnb{
+    width:155px;
+}
+.dvdtr::-webkit-scrollbar {
+    display: none;
+ }
+ .mnb::-webkit-scrollbar {
+    display: none;
+ }
+ .mdm{
+    width: 85px;
+}
+
+.mmodify:after{
+    font-family: FontAwesome;
+    content: '\f044';
+}
+
+.mdelete:after{
+    font-family: FontAwesome;
+    content: '\f1f8';
+}
+.mdelete,.mmodify{
+    width: 50px;
+    border: none;
+    -webkit-appearance: none;
+    width: 40px;
+    font-size: 20px;
+    background: none;
+    color: white;
+ 
+}
+
+.dd{
+    background-color: red;
+    position: absolute;
+    left:500px;
+}

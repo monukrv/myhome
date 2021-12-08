@@ -1,0 +1,41 @@
+.btn:after{
+    font-family: FontAwesome;
+    content: '\f067';
+    color: rgb(70, 68, 68);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+     height: 100%;
+     width: 100%;
+    border-radius: 50%;
+    border: 5px solid rgb(70, 68, 68);
+    opacity: 100%;
+}
+
+.btn{
+    height: 55px;
+    width: 55px;
+    -webkit-appearance: none;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn:hover{
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.btn:hover:after{
+    color: green;
+    border: 6px solid green;
+    border-radius: 50%;
+}

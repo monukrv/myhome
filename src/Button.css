@@ -1,0 +1,59 @@
+ 
+.bdiv{
+  display: grid;
+  height: 120px;
+  width: 150px;
+  grid-template-columns: repeat(3, 1fr 1fr);
+  grid-template-rows: repeat(15,1fr);
+ 
+}
+
+.blbl{
+  grid-row: 13/span 3;
+  grid-column: 1 /span 6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:rgb(17, 16, 16);
+}
+ 
+.btnc{
+    grid-column: 2 /span 4;
+    grid-row: 1/span 12;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    background-color: #c7c2c2 ;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 5px;
+    box-shadow: 
+    3px 3px 3px rgb(139, 137, 137),
+    -3px -3px 3px rgb(248, 245, 245) ;
+   
+}
+
+.btnc:after{
+  font-family: FontAwesome;
+  content: '\f011';
+  font-size: 30px;
+  border-radius: 50%;
+}
+
+.btnc:hover{
+  
+  border-radius: 50%;
+}
+
+.btnc:hover:after{
+  
+  border-radius: 50%;
+   
+  
+}
+
+ 
+ 

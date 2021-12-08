@@ -1,0 +1,28 @@
+ 
+.containerd{
+
+    background-color: rgb(61, 199, 142);
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    display:grid;
+    grid-template-columns:repeat(7,150px);
+    grid-template-rows:repeat(4,150px);
+    left:150px;
+    width :1050px;
+    height:600px;
+    overflow:scroll;
+    scroll-behavior: smooth;
+ 
+}
+
+.items{
+   
+     width: 150px;
+     height: 150px;
+
+ }
+
+ .containerd::-webkit-scrollbar {
+     display: none;
+  }
