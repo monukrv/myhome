@@ -7,7 +7,8 @@ import React, { useState} from 'react';
  import Addbtn from './Addbtn';
  import OutsideClickHandler from 'react-outside-click-handler';
 import Button from './Button';
-
+import { colors, fonts, url } from './variable';
+const remoteurl =url.local;
 import sockett from 'socket.io-client';
 function App() {
     const [btn,sbtn] =useState(false);
@@ -19,7 +20,7 @@ function App() {
     sbtn(!btn);
   }
 
-  const socket = sockett('http://localhost:3001/'&& 'http://192.168.43.45:3001/');
+  const socket = sockett('http://localhost:3001/' && 'http://192.168.43.45:3001/');
   const fff=()=>{
     socket.emit('msg',"{Pin:2}")
 }
@@ -43,7 +44,7 @@ function App() {
        <>
         <button onClick={Mng}>Manage</button>
         <button onClick={Dasb}>Dashboard</button>
-        <button onClick={fff} >monuG</button>
+        <button onClick={fff} >MonuG</button>
        </>
         :null
        }
