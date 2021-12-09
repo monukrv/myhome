@@ -9,7 +9,7 @@ const [ss,ssd]=useState(false);
 useEffect(()=>{
     Axios.get('http://localhost:3001/app' && 'http://206.189.135.167:3001/app').then((ress)=>{
       sdata(ress.data)
-      console.log('njnkjnsknskjndjnd')
+      console.log('njnkjnsknskjnjnd')
     })
 },[ss])
 
