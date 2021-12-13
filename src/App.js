@@ -7,8 +7,6 @@ import React, { useState} from 'react';
  import Addbtn from './Addbtn';
  import OutsideClickHandler from 'react-outside-click-handler';
 import Button from './Button';
-import { colors, fonts, url } from './variable';
-const remoteurl =url.local;
 import sockett from 'socket.io-client';
 function App() {
     const [btn,sbtn] =useState(false);
