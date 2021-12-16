@@ -43,7 +43,7 @@ function App() {
        <>
         <button onClick={Mng}>Manage</button>
         <button onClick={Dasb}>Dashboard</button>
-        <button onClick={fff} >MonuG</button>
+        <button onClick={fff} >Monu</button>
        </>
         :null
        }
