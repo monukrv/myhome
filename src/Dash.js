@@ -11,7 +11,7 @@ function Dash(){
  
 const [s,sdata]=useState([]);
 useEffect(()=>{
-    Axios.get(urll.local+'/app' && urll.remote+'/app').then((ress)=>{
+    Axios.get(urll.remoteurl+'/app').then((ress)=>{
       sdata(ress.data)
       console.log(ress.data)
         
