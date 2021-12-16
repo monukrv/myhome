@@ -42,7 +42,7 @@ app.get('/app',(req,res)=>{
             const q ="select * from test";
             connection.query(q,(err,row)=>{
               res.send(row);
-            
+              console.log(err);
             });
    })
 
@@ -72,8 +72,6 @@ var data=null;
 const server = require('http').createServer(app)
 const io =require('socket.io')(server,{cors:{origin:"*"}})
 
- 
- 
 client.on('connect', ()=> {
       client.subscribe('outt', (err)=> {
         if (!err) {
