@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './Button.css';
 import styled from "styled-components"
 import sockett from 'socket.io-client';
+import { urll } from './variable';
 
 function Button(props){
-    const socket = sockett('http://localhost:3001/' && 'http://192.168.43.45:3001/');
+    const socket = sockett('http://localhost:3001/' && urll.remote);
     const[s,st]=useState(0)
     const[a,as]=useState(0)
  

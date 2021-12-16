@@ -8,6 +8,7 @@ import React, { useState} from 'react';
  import OutsideClickHandler from 'react-outside-click-handler';
 import Button from './Button';
 import sockett from 'socket.io-client';
+import { urll } from './variable';
 function App() {
     const [btn,sbtn] =useState(false);
     const [dbtn,dsbtn] =useState(false);
@@ -18,7 +19,7 @@ function App() {
     sbtn(!btn);
   }
 
-  const socket = sockett('http://localhost:3001/' && 'http://192.168.43.45:3001/');
+  const socket = sockett('http://localhost:3001/' && urll.remote);
   const fff=()=>{
     socket.emit('msg',"{Pin:2}")
 }

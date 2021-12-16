@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './Btnc.css'
 import Axios from 'axios';
+import { urll } from './variable';
 
 function Btn_c(props){
     const [p,sp] =useState(null);
@@ -10,7 +11,7 @@ function Btn_c(props){
     const [b,sb] =useState(null);
     const [m,sm] =useState(0);
 const onSubmit =()=>{
-  Axios.post('http://localhost:3001/innsertbtn'&&'http://192.168.43.45:3001/insertbtn',{
+  Axios.post('http://localhost:3001/innsertbtn'&& urll.remote+'/insertbtn',{
   pin:p,
   bord:b,
   type:t,

@@ -2,12 +2,13 @@ import React ,{useState,} from 'react';
 import './Manage.css'
 import { useEffect } from 'react';
 import Axios from 'axios'
+import { urll } from './variable';
 
 function Manage(){
 const [s,sdata]=useState([]);
 const [ss,ssd]=useState(false);
 useEffect(()=>{
-    Axios.get('http://localhost:3001/app' && 'http://206.189.135.167:3001/app').then((ress)=>{
+    Axios.get('http://localhost:3001/app' && urll.remote+'/app').then((ress)=>{
       sdata(ress.data)
       console.log('njnkjnsknskjnjnd')
     })
@@ -19,7 +20,7 @@ const modify =()=>{
                   } 
 const Delete =(k,nam)=>{
 
-                    Axios.post('http://localhost:3001/delete'&&'http://192.168.43.45:3001/delete',{
+                    Axios.post('http://localhost:3001/delete'&& urll.remote+'/delete',{
                         pinn:k,
                         namm:nam
                         }) 

@@ -7,7 +7,7 @@ export const colors = {
     INIT_FONT_SIZE: 16,
  };
 
- export const url = {
-    remote:'206.189.135.167',
-    local:'localhost',
+ export const urll = {
+    remote:'http://192.168.43.45:3001',
+    local:'http://localhost:3001',
  };
