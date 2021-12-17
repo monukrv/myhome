@@ -1,3 +1,3 @@
 export const urll = {
-    remoteurl:'http://localhost:3001',
+    remoteurl:'http://128.199.16.143',
  };
