@@ -6,11 +6,12 @@ import { urll } from './variable';
 
 function Button(props){
     const socket = sockett(urll.remoteurl);
-    const[s,st]=useState(0)
+    const[s,st]=useState(props.bts)
     const[a,as]=useState(0)
  
-    socket.on('mmc',(data)=>{
-          st(data)
+    socket.on('me',(data)=>{
+          st(data[1])
+          console.log(s)
     })
 
     const ctrlapp=()=>{
@@ -18,7 +19,7 @@ function Button(props){
     }
  
     const Butt = styled.button`
-    color:${1?'white':'grey'};
+    color:${s?'white':'grey'};
     background-color:${1?'green':null};
     `
     return(

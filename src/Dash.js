@@ -13,8 +13,6 @@ const [s,sdata]=useState([]);
 useEffect(()=>{
     Axios.get(urll.remoteurl+'/app').then((ress)=>{
       sdata(ress.data)
-      console.log(ress.data)
-        
     })
 },[])
 
@@ -29,6 +27,7 @@ useEffect(()=>{
                     
                     btname={val.b_name} 
                     pinn={val.pin}
+                    bts={val.p_status}
                     
                     />
                     </div>
