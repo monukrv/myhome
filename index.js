@@ -118,7 +118,7 @@ client.on('message', (topic, message)=> {
         p=parseInt(t,10)
         s=parseInt(k,10)
         data=[p,s]
-        sock.emit('me',data)
+        sock.broadcast.emit('me',data)
         console.log(data)
                   const sq= "update test set p_status = ? where pin=?";
                   connection.query(sq,[(s==1?1:0),p],(err,result)=>{
