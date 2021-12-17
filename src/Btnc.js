@@ -11,7 +11,7 @@ function Btn_c(props){
     const [b,sb] =useState(null);
     const [m,sm] =useState(0);
 const onSubmit =()=>{
-  Axios.post('http://localhost:3001/innsertbtn'&& urll.remote+'/insertbtn',{
+  Axios.post(urll.remoteurl+'/insertbtn',{
   pin:p,
   bord:b,
   type:t,

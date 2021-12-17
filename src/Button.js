@@ -5,7 +5,7 @@ import sockett from 'socket.io-client';
 import { urll } from './variable';
 
 function Button(props){
-    const socket = sockett('http://localhost:3001/' && urll.remote);
+    const socket = sockett(urll.remoteurl);
     const[s,st]=useState(0)
     const[a,as]=useState(0)
  

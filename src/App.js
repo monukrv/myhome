@@ -19,7 +19,7 @@ function App() {
     sbtn(!btn);
   }
 
-  const socket = sockett('http://localhost:3001/' && urll.remote);
+  const socket = sockett(urll.remoteurl);
   const fff=()=>{
     socket.emit('msg',"{Pin:2}")
 }

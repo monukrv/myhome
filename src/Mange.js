@@ -8,7 +8,7 @@ function Manage(){
 const [s,sdata]=useState([]);
 const [ss,ssd]=useState(false);
 useEffect(()=>{
-    Axios.get('http://localhost:3001/app' && urll.remote+'/app').then((ress)=>{
+    Axios.get(urll.remoteurl+'/app').then((ress)=>{
       sdata(ress.data)
       console.log('njnkjnsknskjnjnd')
     })
@@ -20,7 +20,7 @@ const modify =()=>{
                   } 
 const Delete =(k,nam)=>{
 
-                    Axios.post('http://localhost:3001/delete'&& urll.remote+'/delete',{
+                    Axios.post(urll.remoteurl+'/delete',{
                         pinn:k,
                         namm:nam
                         }) 
