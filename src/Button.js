@@ -14,8 +14,7 @@ function Button(props){
     })
 
     const ctrlapp=()=>{
-          socket.emit('msg',"{Pin:"+props.pinn+"}") 
-          if(s==0){alert('bord not connected.')}
+          socket.emit('msg',"{Pin:"+props.pinn+"}")
     }
  
     const Butt = styled.button`
