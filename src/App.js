@@ -6,22 +6,21 @@ import React, { useState} from 'react';
  import Manage from './Mange'
  import Addbtn from './Addbtn';
  import OutsideClickHandler from 'react-outside-click-handler';
-import Button from './Button';
-import sockett from 'socket.io-client';
 import { urll } from './variable';
+
+
 function App() {
     const [btn,sbtn] =useState(false);
     const [dbtn,dsbtn] =useState(false);
     const [mbtn,msbtn] =useState(false);
 
+ 
 
   const Addb=()=>{
     sbtn(!btn);
   }
-
-  const socket = sockett(urll.remoteurl);
   const fff=()=>{
-    socket.emit('msg',"{Pin:2}")
+    urll.client.publish('esp8266',"{Pin:2}")
 }
 
 

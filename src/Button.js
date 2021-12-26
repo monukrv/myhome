@@ -1,31 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import './Button.css';
-import styled from "styled-components"
-import sockett from 'socket.io-client';
 import { urll } from './variable';
 
 function Button(props){
-    const socket = sockett(urll.remoteurl);
     const[s,st]=useState(props.bts)
-    const[a,as]=useState(0)
- 
-    socket.on('me',(data)=>{
-          st(data[1])
-          console.log(s)
+    const[pin,spin]=useState(props.pinn);
+    urll.client.subscribe(pin.toString()+"outt")
+
+    urll.client.on('message',(topic,data)=>{
+         var cdata =JSON.parse(data)
+         if(props.pinn ===cdata[0]){
+             st(cdata[1])
+         }
     })
 
+
     const ctrlapp=()=>{
-          socket.emit('msg',"{Pin:"+props.pinn+"}")
+          urll.client.publish('esp8266',"{Pin:"+props.pinn+"}")
+          spin(props.pinn);
     }
- 
+    
+    /*
     const Butt = styled.button`
     color:${s?'white':'grey'};
     background-color:${1?'green':null};
-    `
+    `*/
     return(
        <>
        <div className='bdiv'>
-        <Butt className="btnc" onClick={ctrlapp}></Butt>
+        <button className="btnc"  style={{color:(s?'white':'grey'),background:(s?'darkgreen':'green')}} onClick={ctrlapp}></button>
         <label className='blbl'>{props.btname}</label>
         </div>
  </>
