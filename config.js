@@ -1,0 +1,1 @@
+exports.mqtturl ='mqtt://broker.hivemq.com';

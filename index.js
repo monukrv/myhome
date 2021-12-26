@@ -3,13 +3,23 @@ const app  = express()
 const connection = require('./db.js');
 const Cors =require('cors')
 var mqtt = require('mqtt');
+const { json } = require('body-parser');
+const config =require('./config.js')
 
 app.use(Cors());
 app.use(express.json())
 app.use(express.urlencoded({
   extended: true
 }));
- 
+
+const server = require('http').createServer(app)
+const io =require('socket.io')(server,{cors:{origin:"*"}})
+
+var sock =null;
+io.on('connection',(socket)=>{
+  sock=socket;
+})
+
 app.post('/insertbtn',(req,res)=>{
         const pin =req.body.pin
         const name =req.body.name
@@ -67,10 +77,7 @@ app.post('/delete',(req,res)=>{
             
 })
 
-var client  = mqtt.connect('mqtt://broker.hivemq.com');
-var data=null;
-const server = require('http').createServer(app)
-const io =require('socket.io')(server,{cors:{origin:"*"}})
+var client  = mqtt.connect(config.mqtturl);
 
 client.on('connect', ()=> {
       client.subscribe('outt', (err)=> {
@@ -93,35 +100,11 @@ client.on('connect', ()=> {
       })
 })
 
-var data=null;
-
-var sock =null;
-
-client.on('message', (topic, message)=> {
-  // message is Buffer
-
-  data=(message.toString())
+client.on('message', (topic, msg)=> {
   if(topic=='outt'){
-      var lnt =data.length;
-            if(lnt==6){
-                  t=data[1]+data[2];
-                  k=data[4];
-                  }
-                else if(lnt==7){
-                      t=data[1]+data[2],data[3];
-                      k=data[5];
-                      }
-                                else{
-                                t=data[1];
-                                k=data[3];
-                                }
-        p=parseInt(t,10)
-        s=parseInt(k,10)
-        data=[p,s]
-        sock.broadcast.emit('me',data)
-        console.log(data)
+    var data =JSON.parse(msg);
                   const sq= "update test set p_status = ? where pin=?";
-                  connection.query(sq,[(s==1?1:0),p],(err,result)=>{
+                  connection.query(sq,[data[1],data[0]],(err,result)=>{
                     if(err){
                       console.log(err)
                     }
@@ -130,33 +113,15 @@ client.on('message', (topic, message)=> {
                  else if(topic=='cntd'){
                   const q ="select p_status ,pin from test";
                   connection.query(q,(err,row)=>{
+                    console.log(row)
                     row.forEach(element => {
                       client.publish('esp8266',"{Pin:"+element.pin+",S:"+element.p_status+",st:1}")
                         });
                      })
                }
-               else if(topic=='alive'){
-                lastTime=Date.now();
-                 
-                }
-
-})
+}) 
 
 
-
-      io.on('connection',(socket)=>{
-        sock=socket;
-        if(socket){
-        socket.on('msg',(dataa)=>{
-         console.log(dataa)
-          if(dataa){
-          client.publish('esp8266',dataa)
-
-            }
-        })
-        
-       }
-      })
            
 server.listen(3001,()=>{
     console.log("listening on port 3001")
