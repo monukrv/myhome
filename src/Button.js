@@ -5,7 +5,7 @@ import { urll } from './variable';
 function Button(props){
     const[s,st]=useState(props.bts)
     const[pin,spin]=useState(props.pinn);
-    urll.client.subscribe(pin.toString()+"outt")
+    urll.client.subscribe(pin.toString())
 
     urll.client.on('message',(topic,data)=>{
          var cdata =JSON.parse(data)
