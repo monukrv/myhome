@@ -1,7 +1,23 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import './Signup.css'
+import { urll } from "./variable";
 
  function Signup(props) {
+    const [name,sname]=useState();
+    const [email,semail]=useState();
+    const [password,spassword]=useState();
+
+    const cretae= ()=>{
+       axios.post(urll.remoteurl+'/newuser',{
+           name:name,
+           email:email,
+           password:password,
+       }).then((data)=>{
+          console.log(data.data)
+       })
+    }
+
      return(
      <> 
         <div className='upcon'>
@@ -20,6 +36,7 @@ import './Signup.css'
                      type='text'
                      className='upinput'
                      placeholder='Enter your name'
+                     onChange={(e)=>{sname(e.target.value)}}
                      />
              </div> 
 
@@ -29,6 +46,7 @@ import './Signup.css'
                      type='text'
                      className='upinput'
                      placeholder='Enter Email or Phone'
+                     onChange={(e)=>{semail(e.target.value)}}
                      />
                </div> 
 
@@ -38,6 +56,7 @@ import './Signup.css'
                      type='password'
                      className='upinput'
                      placeholder='Enter your password'
+                     onChange={(e)=>{spassword(e.target.value)}}
                      />
              </div> 
 
@@ -51,7 +70,11 @@ import './Signup.css'
                </div> 
 
                <div className='footer'>
-                  <button className='upbtn' >Create</button>
+                  <button 
+         
+                       className='upbtn' 
+                       onClick={cretae}
+                  />
                </div> 
 
         </div>

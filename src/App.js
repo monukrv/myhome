@@ -1,93 +1,74 @@
 
-import React, { useState} from 'react';
- import Btnc from './Btnc';
- import './App.css';
- import Dash from './Dash'
- import Manage from './Mange'
- import Addbtn from './Addbtn';
- import OutsideClickHandler from 'react-outside-click-handler';
+import React, { useEffect, useState } from 'react';
+import Btnc from './Btnc';
+import './App.css';
+import Dash from './Dash'
+import Manage from './Mange'
+import Addbtn from './Addbtn';
+import OutsideClickHandler from 'react-outside-click-handler';
 import { urll } from './variable';
 import Signin from './Signin';
 import Signup from './Signup';
-
+import axios from 'axios';
+import { useNavigate } from 'react-router';
+axios.defaults.withCredentials = true;
 
 function App() {
-    const [btn,sbtn] =useState(false);
-    const [dbtn,dsbtn] =useState(false);
-    const [mbtn,msbtn] =useState(false);
+  let navi = useNavigate()
+  useEffect(() => {
+    axios.get("http://localhost:3001/").then((response) => {
 
-    const [startbtn,sstartbtn]=useState(true)
-    const [logbtn,slogbtn] =useState(true);
+      if (response.data.loggedIn == true) {
+        navi('/dash')
 
- 
+      }
 
-  const Addb=()=>{
+    });
+  }, []);
+  const [btn, sbtn] = useState(false);
+  const [dbtn, dsbtn] = useState(false);
+  const [mbtn, msbtn] = useState(false);
+  const [s, sn] = useState(false);
+  const [startbtn, sstartbtn] = useState(true)
+  const [logbtn, slogbtn] = useState(true);
+
+
+
+  const Addb = () => {
     sbtn(!btn);
-                 }
+  }
 
-  const Logbtn=()=>{
-                 slogbtn(!logbtn)
-                }
+  const Logbtn = () => {
+    slogbtn(!logbtn)
+  }
 
-  const fff=()=>{
+  const fff = () => {
     sstartbtn(!startbtn)
-                }
+  }
 
-
-  const Dasb =()=>{
-                   dsbtn(!dbtn)
-                   sbtn(false);
-                   msbtn(false)
-                  
-                  }    
-
-  const Mng =()=>{
-                    msbtn(!mbtn)
-                    sbtn(false);
-                    dsbtn(false)
-                   
-                   } 
-
-    return (
+  return (
+    <>
       <div className='contain'>
-            { /*
-            !mbtn && !dbtn?
+
+        {
+          startbtn ?
             <>
-              <button onClick={Mng}>Manage</button>
-              <button onClick={Dasb}>Dashboard</button>
-              <button onClick={fff} >start</button>
-              <Signup />
+              <button onClick={fff} className='start'></button>
+              <marquee style={{ position: 'absolute', top: '50%', fontSize: '30px' }}><b>Home Automation is very Easy..</b></marquee>
             </>
-              :null
-              */
-             startbtn?<button onClick={fff} className='start'></button>:
-                 logbtn?
-                    <OutsideClickHandler onOutsideClick={fff}>
-                      <Signin fun={Logbtn}/>
-                    </OutsideClickHandler>
-                    :<Signup fun={Logbtn} />
-            }
-            
-      
-            <div id="btn">
-              
-              { /*
-                dbtn || btn || mbtn?
-                  (dbtn && !btn && !mbtn?<OutsideClickHandler onOutsideClick={Dasb}><Dash /></OutsideClickHandler>:
-                    (mbtn && !dbtn && !btn?
-                      <OutsideClickHandler onOutsideClick={Mng}><Manage /></OutsideClickHandler>:
-                        <OutsideClickHandler onOutsideClick={Addb}><Btnc name={Addb}/></OutsideClickHandler>)):
-                          <Addbtn name={Addb}/>
-                  */   
-                 
-                          
+            :
+            logbtn ?
+              <OutsideClickHandler onOutsideClick={fff}>
+                <Signin fun={Logbtn} />
+              </OutsideClickHandler>
+              : <Signup fun={Logbtn} />
+        }
 
-              }
-
-            </div>
       </div>
-    );
-    
+
+    </>
+  );
+
 
 }
 
